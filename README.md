@@ -256,6 +256,36 @@ npm start                          # → http://localhost:3002
 
 ---
 
+### Example identity (.env) — DO NOT commit secrets
+
+When the evaluator returns `clientID`/`clientSecret` after `POST /register`,
+store them in your local `.env` files. Never commit `.env` or these values
+to source control. Example `.env` entries (replace placeholders with your
+real values):
+
+```ini
+# Common identity / registration values
+EVAL_EMAIL=your.college.email@domain
+EVAL_NAME=Your Name
+EVAL_MOBILE=9876543210
+EVAL_GITHUB_USERNAME=your-github
+EVAL_ROLL_NO=22MIS7255
+EVAL_ACCESS_CODE=YOUR_ACCESS_CODE
+
+# Optional: cached credentials returned by the evaluation server after /register
+EVAL_CLIENT_ID=replace-with-client-id
+EVAL_CLIENT_SECRET=replace-with-client-secret
+
+# Service port override (optional)
+PORT=3002
+```
+
+If you already received a small JSON identity blob (contains `clientID` and
+`clientSecret`), copy the values into the `.env` entries above. For security,
+keep `EVAL_CLIENT_SECRET` private — do not paste it into screenshots,
+commits, or public chat.
+
+
 ## Architecture
 
 ```
