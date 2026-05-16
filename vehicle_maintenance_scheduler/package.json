@@ -1,16 +1,16 @@
 {
-  "name": "vehicle_maintenance_scheduler",
+  "name": "vehicle-maintenance-scheduler",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend that fetches depot/vehicle data and picks tasks maximizing impact under a mechanic-hour budget (0/1 knapsack).",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1"
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "logging-middleware": "file:../logging_middleware"
   }
 }

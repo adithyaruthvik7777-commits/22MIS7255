@@ -27,7 +27,7 @@ app.use(async (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(cfg.port, async () => {
+const server = app.listen(cfg.port, async () => {
   if (cfg.missingRequired.length > 0) {
     await Log(
       "backend",
@@ -43,4 +43,22 @@ app.listen(cfg.port, async () => {
     `notification_app_be listening on port ${cfg.port}`
   );
   process.stdout.write(`notification_app_be ready on http://localhost:${cfg.port}\n`);
+});
+
+server.on("error", async (err) => {
+  if (err.code === "EADDRINUSE") {
+    await Log(
+      "backend",
+      "error",
+      "service",
+      `Port ${cfg.port} already in use; set PORT or stop the existing process`
+    );
+    console.error(
+      `Port ${cfg.port} already in use. Set PORT or stop the process using the port.`
+    );
+    process.exit(1);
+  }
+
+  await Log("backend", "error", "service", `Server error: ${err.message}`);
+  throw err;
 });

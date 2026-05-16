@@ -1,5 +1,5 @@
 const { Log } = require("logging-middleware");
-const { fetchVehicles } = require("../services/vehiclesService");
+const { fetchVehicles } = require("../services/vehiclesServices");
 
 async function listVehicles(req, res) {
   await Log("backend", "info", "controller", "vehiclesController.listVehicles");

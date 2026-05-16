@@ -1,6 +1,6 @@
 const { Log } = require("logging-middleware");
 const { fetchDepots, totalMechanicHours } = require("../services/depotsService");
-const { fetchVehicles } = require("../services/vehiclesService");
+const { fetchVehicles } = require("../services/vehiclesServices");
 const { optimize } = require("../services/optimizer");
 
 async function runOptimization(req, res) {

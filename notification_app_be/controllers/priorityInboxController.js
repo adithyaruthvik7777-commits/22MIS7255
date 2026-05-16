@@ -1,5 +1,5 @@
 const { Log } = require("logging-middleware");
-const { fetchNotifications } = require("../services/notificationsService");
+const { fetchNotifications } = require("../services/notificationsServices");
 const { PriorityInbox, TYPE_WEIGHTS } = require("../services/priorityInbox");
 
 async function getPriorityInbox(req, res) {

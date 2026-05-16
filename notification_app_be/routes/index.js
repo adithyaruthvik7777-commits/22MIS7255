@@ -1,6 +1,6 @@
 const express = require("express");
 
-const notificationsRouter = require("./notifications");
+const notificationsRouter = require("./notification");
 const priorityInboxRouter = require("./priorityInbox");
 
 const router = express.Router();
